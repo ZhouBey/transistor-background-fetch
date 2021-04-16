@@ -113,7 +113,7 @@ public class BGTask {
     static void schedule(Context context, BackgroundFetchConfig config) {
         Log.d(BackgroundFetch.TAG, config.toString());
 
-        long interval = (config.isFetchTask()) ? (TimeUnit.MINUTES.toMillis(config.getMinimumFetchInterval())) : config.getDelay();
+        long interval = (config.isFetchTask()) ? (config.getMinimumFetchInterval()) : config.getDelay();
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !config.getForceAlarmManager()) {
             // API 21+ uses new JobScheduler API
